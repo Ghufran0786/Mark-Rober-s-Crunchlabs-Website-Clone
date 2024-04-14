@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Rober Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+   document.addEventListener('DOMContentLoaded', function () {
+    const selectArrow = document.querySelector('.select-arrow');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const customSelect = document.querySelector('.custom-select');
+
+    let timeoutId; // Variable to hold the timeout ID
+
+    // Function to open the dropdown content
+    function openDropdown() {
+        clearTimeout(timeoutId); // Clear any existing timeout
+        dropdownContent.classList.add('show');
+        customSelect.classList.add('select-open'); // Add class to rotate arrow
+    }
+
+    // Function to close the dropdown content after a delay
+    function closeDropdownWithDelay() {
+        timeoutId = setTimeout(function() {
+            dropdownContent.classList.remove('show');
+            customSelect.classList.remove('select-open'); // Remove class to reset arrow rotation
+        }, 200); // Set delay to 2000 milliseconds (2 seconds)
+    }
+
+    // Event listener to open dropdown when hovering over the arrow
+    selectArrow.addEventListener('mouseenter', openDropdown);
+
+    // Event listener to close dropdown when cursor leaves the dropdown area
+    customSelect.addEventListener('mouseleave', closeDropdownWithDelay);
+
+    // Event listener to close dropdown when cursor leaves the document
+    document.addEventListener('mouseleave', closeDropdownWithDelay);
+
+    // Event listener to close dropdown when clicked outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.custom-select')) {
+            closeDropdownWithDelay(); // Close dropdown with delay when clicked outside
+        }
+    });
+
+    // Event listener to prevent closing when cursor enters the dropdown content
+    dropdownContent.addEventListener('mouseenter', function() {
+        clearTimeout(timeoutId); // Clear timeout to prevent closing
+    });
+
+    // Event listener to resume closing when cursor leaves the dropdown content
+    dropdownContent.addEventListener('mouseleave', closeDropdownWithDelay);
+});
+    // animated text slide
+    </script>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+        // Wait for the DOM to be fully loaded
+        setTimeout(function() {
+            // Add 'active' class to trigger the animation after a delay
+            document.querySelector('.animated-text').classList.add('active');
+        }, 500); // Delay in milliseconds
+    });
+    </script>
+    
+    <script src="https://kit.fontawesome.com/45a45cf8d9.js" 
+    crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="container">
+        <ul>
+            <ul class="options">
+            <li class="logo"><img src="/Images/header-logo.png" alt="header_logo"></li>
+            <li class="text">SUBSCRIBE</li>
+            <li class="text">GIVE A GIFT</li>
+            <li class="custom-select">
+                MORE
+                <select id="moreitems">
+                    <option value="shop">SHOP</option>
+                    <option value="reviews">REVIEWS</option>
+                    <option value="aboutus">ABOUT US</option>
+                    <option value="faqs">FAQS</option>
+                    <option value="educators">EDUCATORS (BULK ORDER)</option>
+                </select>
+                <div class="select-arrow"></div>
+                <div class="dropdown-content">
+                    <option value="shop">SHOP</option>
+                    <option value="reviews">REVIEWS</option>
+                    <option value="aboutus">ABOUT US</option>
+                    <option value="faqs">FAQS</option>
+                    <option value="educators">EDUCATORS (BULK ORDER)</option>
+                </div>
+            </li>
+        </ul>
+            <ul class="button">
+                <li><button id="signin">
+                    <i class="fa-regular fa-user"> Sign In</i>
+                </button>
+                </li>
+                <li><button id="cart">
+                    <i class="fa-solid fa-cart-shopping"> Cart</i>
+                    </button>
+                </li>
+            </ul>
+        </ul>
+    </nav>
+</header>
+  <div class="mainbody">
+    <!-- The video -->
+    <video autoplay loop muted class="video" id="myVideo">
+      <source src="/Images/mainvideo.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="animated-text">
+    <h1>THINK <br>LIKE AN ENGINEER</h1>
+    <p>Build a new toy each month w/ Mark Rober. <br>YEARS of learning & fun!</p>
+    <button>GET STARTED</button>
+  </div>
+  <!-- Tutorial Section -->
+  <section class="tutorial">
+    <h2>HOW IT WORKS</h2>
+    <div class="tutorial_panel">
+    <div class="number_images">
+        <img src="/Images/1.svg" alt="1" class="num1">
+        <img src="/Images/2.svg" alt="2" class="num2">
+        <img src="/Images/3.svg" alt="3" class="num3">
+    </div>
+    <div class="images_section">
+    <div class="tutorial_images">
+        <img src="/Images/tutorialimg1.svg" alt="tutorialimg1" class="img1">
+        <img src="/Images/tutorialimg2.svg" alt="tutorialimg2" class="img2">
+        <img src="/Images/tutorialimg3.png" alt="tutorialimg3" class="img3">
+    </div>
+    </div>
+    <div class="grid-wrapper">
+        <div class="grid-container">
+        <script>
+            // Get the container where the div elements will be added
+            var container = document.querySelector('.grid-container');
+            // Loop from 1 to 720
+            for (var i = 1; i <= 720; i++) {
+              // Create a new div element
+              var div = document.createElement('div');
+              // Set the class name
+              div.className = 'grid-item';
+              // Set the inner HTML to the current value of i
+              div.innerHTML = i;
+              // Append the div to the container
+              container.appendChild(div);
+            }
+          </script>
+        </div>
+    </div>
+    <div class="tutorial_text">
+        <div class="build">
+            <h3><span class="red-text">BUILD</span> <span class="black-text"> ...</span></h3>
+            <p>Build your own toys with simple step-by-step instructions.</p>
+        </div>
+        <div class="play">
+            <h3><span class="red-text">PLAY</span> <span class="black-text"> ...</span></h3>
+            <p>Play the included games and challenges you get for free with every new toy.</p>
+        </div>
+        <div class="think">
+            <h3><span class="red-text">THINK</span> <span class="black-text">LIKE AN ENGINEER</span></h3>
+            <p>Think about how it all fits together with mind-blowing exclusive videos from Mark Rober.</p>
+        </div>
+    </div>
+    </div>
+  </section>
+  <!-- Plans Section -->
+  <section class="plans">
+    <h2 class="pickyourplan">PICK YOUR PLAN</h2>
+    
+    <div class="cards_plans">
+        <!-- First Card -->
+      <div class="firstcard">
+        <h3 class="mostpoular">Most Popular</h3>
+        <div class="content">
+        <h2>12 MONTH <br>SUBSCRIPTION</h2>
+        <p class="payanually">Pay Annually</p>
+        <img src="/Images/25dollar.webp" alt="yearlyplan" class="firstplanimage">
+        <h2><span class="price">$24.95 </span> 
+            <span class="per_box">/ box</span>
+            <span class="org_price">$29.95</span> <br>
+            <span class="paideach_">Paid each year</span>
+        </h2>
+        <div class="lineseparate">1</div>
+        <p class="firstcardfeatures">✔ New toy to build each month<br>
+            ✔ New Mark Rober video exploring <br><span class="discounted">each toy</span> <br>
+            ✔ Free shipping in US <br><span class="discounted">(discounted int'l)</span> <br>
+            ✔ Commit to 1 year, pay annually,<br><span class="discounted">save $60</span> <br>
+            ✔ 2 MONTHS FREE!</p>
+        </div>
+        <button>SUBSCRIBE</button>
+        </div>
+
+        <!-- Second Card -->
+        <div class="secondcard">
+            <div class="content">
+            <h2>12 MONTH <br>SUBSCRIPTION</h2>
+            <p class="payanually">Pay Annually</p>
+            <img src="/Images/27dollar.webp" alt="yearlyplan" class="firstplanimage">
+            <h2><span class="price">$27.45 </span> 
+                <span class="per_box">/ box</span>
+                <span class="org_price">$29.95</span> <br>
+                <span class="paideach_">Paid each year</span>
+            </h2>
+            <div class="lineseparate">1</div>
+            <p class="firstcardfeatures">✔ New toy to build each month<br>
+                ✔ New Mark Rober video exploring <br><span class="discounted">each toy</span> <br>
+                ✔ Free shipping in US <br><span class="discounted">(discounted int'l)</span> <br>
+                ✔ Commit to 1 year, pay annually,<br><span class="discounted">save $30</span> <br>
+                ✔ 1 MONTH FREE!</p>
+            </div>
+            <button>SUBSCRIBE</button>
+        </div>
+
+        <!-- Third Card -->
+        <div class="thirdcard">
+            <div class="content">
+            <h2>12 MONTH <br>SUBSCRIPTION</h2>
+            <p class="payanually">Pay Annually</p>
+            <img src="/Images/30dollar.webp" alt="yearlyplan" class="firstplanimage">
+            <h2><span class="price3">$29.95 </span> 
+                <span class="per_box">/ box</span> <br>
+                <span class="paideach_3">Paid each year</span>
+            </h2>
+            <div class="lineseparate">1</div>
+            <p class="firstcardfeatures">✔ New toy to build each month<br>
+                ✔ New Mark Rober video exploring <br><span class="discounted">each toy</span> <br>
+                ✔ Free shipping in US <br><span class="discounted">(discounted int'l)</span> <br>
+                ✔ Cancel anytime (rebills every 3 months)</p>
+            </div>
+            <button>SUBSCRIBE</button>
+        </div>
+    </div>
+
+
+  </section>
+  <!-- Gift Box Section -->
+  <section class="giftbox">
+    <div class="giftboximg">
+    <img src="/Images/section 3 images/box.webp" alt="giftbox"></div>
+    <div class="giftbox_text">
+    <h2>GIFT A BUILD BOX SUBSCRIPTION</h2>
+    <p>Know any little geniuses who would love Build Box? Gift them up to a year's worth of CrunchLabs awesomeness!</p></div>
+    <button class="giftbox_button">SHOP GIFT CREDITS</button>
+  </section>
+  <!-- Girl Playing Image Section -->
+  <section class="girl_playing">
+    <img src="/Images/section 3 images/girl.jpeg" alt="girl">
+    <h2>
+       <span class="girl_playing_arrow">►</span>
+       <span class="girl_playing_text"> FOR THE WILDEST WONDERERS…
+       </span>
+       </h2>
+  </section>
+  <!-- Boys Playing Image Section -->
+  <section class="boys_playing">
+    <img src="/Images/section 3 images/boys.jpeg" alt="boys">
+    <h2>
+        <span class="boys_playing_text">… & THE MISCHIEF MAKERS </span>
+        <span class="boys_playing_arrow">◄</span>
+        </h2>
+  </section>
+  <!-- Girl Watching Mark Section -->
+  <section class="girl_watching">
+    <img src="/Images/section 3 images/girlwatching.jpeg" alt="girlwatching">
+    <div class="girl_watching_text">
+    <h2>
+        <span class="girl_watching_whitetext">CRUNCHLABS IS FOR EVERYONE </span>
+        <span class="girl_watching_goldtext">EXCITED TO EXPLORE</span>
+    </h2>
+    <p>From the mind of a NASA engineer and YouTube prank legend, 
+        Mark Rober, CrunchLabs' boxes are designed for kids 8-12+ 
+        so they can build toys successfully and independently, and 
+        learn engineering concepts in the best possible way – by playing!</p>
+        <button>SUBSCRIBE</button>
+    </div>
+  </section>
+  <!-- Quote -->
+  <section class="quote_section">
+    <div class="quote">
+    <h2><span class="appostrophy">"</span>
+        <span class="quote_text">THINKING LIKE AN ENGINEER MEANS YOU’RE RESILIENT. IT’S GETTING BACK UP AFTER BEING KNOCKED DOWN AND APPROACHING THINGS DIFFERENTLY. THAT DETERMINATION HELPS KIDS TACKLE EVERYDAY CHALLENGES AND IT’S THE SAME DETERMINATION THAT PUTS ROVERS ON OTHER DANG PLANETS!</span>
+        <br><span class="appostrophy">"</span>
+    </h2>
+    <img src="/Images/section 3 images/mark.png" alt="markrober">
+</div>
+    <div class="grid-wrapper_2">
+        <div class="grid-container_2">
+        
+        <script>
+            // Get the container where the div elements will be added
+            var container = document.querySelector('.grid-container_2');
+            // Loop from 1 to 720
+            for (var i = 1; i <= 525; i++) {
+              // Create a new div element
+              var div = document.createElement('div');
+              // Set the class name
+              div.className = 'grid-item_2';
+              // Set the inner HTML to the current value of i
+              div.innerHTML = i;
+              // Append the div to the container
+              container.appendChild(div);
+            }
+          </script>
+        </div>
+    </div>
+  </section>
+  <!-- Social Links Section -->
+  <section class="social_links">
+    <h2>SHOW OFF YOUR BUILDS</h2>
+    <h3> <a href="https://www.instagram.com/crunchlabs/" target="_blank">@CrunchLabs</a>
+        #CrunchLabs</h3>
+        <div class="icons">
+            <a href="https://www.youtube.com/crunchlabs?app=desktop&sub_confirmation=1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/notfound" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/crunchlabs/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/crunchlabsofficial" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+  </section>
+  <!-- Insta Photos Section -->
+  <section class="insta_photos">
+    <div class="insta_imgs">
+        <a href="https://www.instagram.com/p/C5UJh-rssqn/" target="_blank"><img src="/Images/insta links images/1.jpg" alt=""><div class="insta_logo"><i class="fa-brands fa-instagram"></i></div></a>
+        <a href="https://www.instagram.com/crunchlabs/p/C5CH96SraJ2/" target="_blank"><img src="/Images/insta links images/2.jpg" alt=""><div class="insta_logo"><i class="fa-brands fa-instagram"></i></div></a>
+        <a href="https://www.instagram.com/p/C4wGZ4ps56x/" target="_blank"><img src="/Images/insta links images/3.jpg" alt=""><div class="insta_logo"><i class="fa-brands fa-instagram"></i></div></a>
+        <a href="https://www.instagram.com/crunchlabs/p/C4MBcdbLJRj/" target="_blank"><img src="/Images/insta links images/4.jpg" alt=""><div class="insta_logo"><i class="fa-brands fa-instagram"></i></div></a>
+        <a href="https://www.instagram.com/p/C36CgxnrfBQ/" target="_blank"><img src="/Images/insta links images/5.jpg" alt=""><div class="insta_logo"><i class="fa-brands fa-instagram"></i></div></a>
+        <a href="https://www.instagram.com/p/C3D9ltzNPqm/" target="_blank" class="last_image"><img src="/Images/insta links images/6.jpg" alt=""><div class="insta_logo"><i class="fa-brands fa-instagram"></i></div></a>
+    </div>
+  </section>
+  <!-- Reviews Section -->
+  <!-- <section class="reviews">
+    <div class="carousel-primary">
+    <img src="/Images/reviews/1.png" alt="">
+    <img src="/Images/reviews/2.png" alt="">
+    <img src="/Images/reviews/3.png" alt="">
+    <img src="/Images/reviews/4.png" alt="">
+    <img src="/Images/reviews/5.png" alt="">
+    </div>
+    <div class="carousel-primary carousel-secondary">
+    <img src="/Images/reviews/1.png" alt="">
+    <img src="/Images/reviews/2.png" alt="">
+    <img src="/Images/reviews/3.png" alt="">
+    <img src="/Images/reviews/4.png" alt="">
+    <img src="/Images/reviews/5.png" alt="">
+    </div>
+  </section> -->
+  <!-- Subscribe Today Section -->
+  <section class="subscribe_today">
+    <img src="/Images/section 3 images/markholding.jpeg" alt="markholding">
+    <div class="realplace">
+        <h2>
+            <span class="realplace_white">CRUNCLABS</span>
+            <span class="realplace_gold"> IS A REAL PLACE</span>
+        </h2>
+        <p>WIN TICKETS TO VISIT THE LAB (the Top Secret-Foam Pit-Glitter Bomb-Workshop-Prank Tank-Laboratory-Nerf Battlefield-Clubhouse 
+            where we actually design the toys)! Each Build Box contains a chance for you to win a PLATINUM TICKET, a trip to meet & create 
+            with Mark for an entire day.*</p>
+
+        <button>SUBSCRIBE TODAY</button>
+    </div>
+  </section>
+</body>
+</html>
+
+
+
